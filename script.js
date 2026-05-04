@@ -106,6 +106,11 @@ function loadData() {
 
   dataContainer.innerHTML = output;
 }
+if (!localStorage.getItem("users")) {
+  localStorage.setItem("users", JSON.stringify([
+    { username: "admin", password: "admin123", role: "admin" }
+  ]));
+}
 
 // DELETE DATA
 function deleteData(index) {
