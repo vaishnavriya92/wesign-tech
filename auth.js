@@ -49,19 +49,18 @@ if (loginForm) {
 );
     if (user) {
       // ✅ SAVE SESSION
-      sessionStorage.setItem("isLoggedIn", "true");
-      sessionStorage.setItem("role", user.role);
-      sessionStorage.setItem("username", user.username);
+      localStorage.setItem("isLoggedIn", "true");
+localStorage.setItem("role", user.role);
+localStorage.setItem("username", user.username);
 
-      // ✅ REDIRECT LOGIC
-      const redirect = sessionStorage.getItem("redirectAfterLogin");
+const redirect = localStorage.getItem("redirectAfterLogin");
 
-      if (redirect) {
-        sessionStorage.removeItem("redirectAfterLogin");
-        window.location.href = redirect;
-      } else {
-        window.location.href = "index.html";
-      }
+if (redirect) {
+  localStorage.removeItem("redirectAfterLogin");
+  window.location.href = redirect;
+} else {
+ window.location.href = "/wesign-tech/index.html";
+}
 
     } else {
       document.getElementById("error").innerText = "Invalid credentials!";
@@ -73,8 +72,8 @@ if (loginForm) {
 // PROTECT ALL PAGES
 // =======================
 function protectPage() {
-  if (sessionStorage.getItem("isLoggedIn") !== "true") {
-    sessionStorage.setItem("redirectAfterLogin", window.location.href);
+  if (localStorage.getItem("isLoggedIn") !== "true") {
+    localStorage.setItem("redirectAfterLogin", window.location.href);
     window.location.replace("login.html");
   }
 }
@@ -94,6 +93,8 @@ function protectAdmin() {
 // LOGOUT
 // =======================
 function logout() {
-  sessionStorage.clear();
+  localStorage.removeItem("isLoggedIn");
+  localStorage.removeItem("role");
+  localStorage.removeItem("username");
   window.location.replace("login.html");
 }
