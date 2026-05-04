@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="auth.js"></script>
+<script>
+protectPage();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio | Wesign Technologies</title>
+<link rel="stylesheet" href="style.css">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="portfolio.css">
+</head>
+
+<body>
+
+<!--NAVBAR -->
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand text-white fw-bold" href="index.html">
+      Wesign Technologies
+    </a>
+
+    
+
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+        <li class="nav-item"><a class="nav-link active" href="portfolio.html">Portfolio</a></li>
+        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="admin.html">Admin</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO HEADER  -->
+<section class="hero">
+  <div class="container text-center text-white">
+    <h1>Our Portfolio</h1>
+    <p>Explore Our Recent Projects & Success Stories</p>
+  </div>
+</section>
+
+<!-- PORTFOLIO SECTION -->
+<section class="portfolio-section">
+  <div class="container text-center">
+
+    <h2 class="mb-4">Featured Projects</h2>
+
+    <!-- Filter Buttons -->
+    <div class="mb-5">
+      <button class="filter-btn active" onclick="filterSelection('all')">All</button>
+      <button class="filter-btn" onclick="filterSelection('web')">Web</button>
+      <button class="filter-btn" onclick="filterSelection('app')">App</button>
+      <button class="filter-btn" onclick="filterSelection('cloud')">Cloud</button>
+    </div>
+
+    <div class="row g-4">
+
+      <div class="col-md-4 filter-item web">
+        <div class="card-box">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085">
+          <div class="overlay">
+            <h5>Corporate Website</h5>
+            <p>Modern business web platform</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 filter-item app">
+        <div class="card-box">
+          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c">
+          <div class="overlay">
+            <h5>Mobile App</h5>
+            <p>Cross-platform productivity app</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 filter-item cloud">
+        <div class="card-box">
+          <img src="https://images.unsplash.com/photo-1508780709619-79562169bc64">
+          <div class="overlay">
+            <h5>Cloud Infrastructure</h5>
+            <p>Enterprise cloud deployment</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  © 2026 Wesign Technologies | All Rights Reserved
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+function filterSelection(category) {
+  let items = document.querySelectorAll(".filter-item");
+  items.forEach(item => {
+    if (category === "all" || item.classList.contains(category)) {
+      item.style.display = "block";
+    } else {
+      item.style.display = "none";
+    }
+  });
+
+  let buttons = document.querySelectorAll(".filter-btn");
+  buttons.forEach(btn => btn.classList.remove("active"));
+  event.target.classList.add("active");
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="auth.js"></script>
+<script>
+protectPage();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog | Wesign Technologies</title>
+<link rel="stylesheet" href="style.css">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+<div class="container">
+<a class="navbar-brand fw-bold" href="index.html">Wesign Technologies</a>
+<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navMenu">
+  <ul class="navbar-nav ms-auto">
+    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+    <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+    <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
+    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+    <li class="nav-item"><a class="nav-link" href="admin.html">Admin</a></li>
+  </ul>
+  
+</div>
+</div>
+</nav>
+
+<!-- Header -->
+<section class="page-header">
+<div>
+<h1 data-aos="fade-up">Our Blog</h1>
+<p data-aos="fade-up" data-aos-delay="200">
+Insights, Trends & Technology Updates
+</p>
+</div>
+</section>
+
+<!-- Blog Section -->
+<section class="section">
+<div class="container">
+
+<div class="row g-4">
+
+<!-- Blog Card 1 -->
+<div class="col-md-4" data-aos="fade-up">
+<div class="card blog-card shadow-sm">
+<img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085" class="card-img-top">
+<div class="card-body">
+<h5 class="card-title">Top Web Development Trends in 2026</h5>
+<p class="card-text">
+Explore modern frameworks, AI integration, and responsive design trends shaping the future.
+</p>
+<a href="#" class="btn btn-primary btn-sm">Read More</a>
+</div>
+</div>
+</div>
+
+<!-- Blog Card 2 -->
+<div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+<div class="card blog-card shadow-sm">
+<img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b" class="card-img-top">
+<div class="card-body">
+<h5 class="card-title">Importance of Cybersecurity in Business</h5>
+<p class="card-text">
+Learn how secure systems protect your digital assets and improve customer trust.
+</p>
+<a href="#" class="btn btn-primary btn-sm">Read More</a>
+</div>
+</div>
+</div>
+
+<!-- Blog Card 3 -->
+<div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+<div class="card blog-card shadow-sm">
+<img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f" class="card-img-top">
+<div class="card-body">
+<h5 class="card-title">Cloud Computing for Startups</h5>
+<p class="card-text">
+Scalable infrastructure solutions that reduce cost and increase efficiency.
+</p>
+<a href="#" class="btn btn-primary btn-sm">Read More</a>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<!-- Newsletter Section -->
+<section class="section bg-light">
+<div class="container text-center">
+<h2 data-aos="fade-up">Subscribe to Our Newsletter</h2>
+<p data-aos="fade-up" data-aos-delay="200">
+Get the latest tech insights directly to your inbox.
+</p>
+
+<form class="row justify-content-center mt-4" data-aos="fade-up" data-aos-delay="400">
+<div class="col-md-4">
+<input type="email" class="form-control" placeholder="Enter your email">
+</div>
+<div class="col-md-2">
+<button class="btn btn-primary w-100">Subscribe</button>
+</div>
+</form>
+
+</div>
+</section>
+
+<footer>
+© 2026 Wesign Technologies | All Rights Reserved
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+AOS.init({
+duration:1000,
+once:true
+});
+</script>
+
+<script src="script.js"></script>
+
+</body>
+</html>
