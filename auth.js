@@ -7,12 +7,13 @@ if (signupForm) {
   signupForm.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    const username = document.getElementById("newUser").value;
+    const username = document.getElementById("newUser").value.trim();
     const password = document.getElementById("newPass").value;
     const role = document.getElementById("role").value;
 
     let users = JSON.parse(localStorage.getItem("users")) || [];
 
+    // check if user already exists
     const exists = users.find(u => u.username === username);
 
     if (exists) {
@@ -20,12 +21,12 @@ if (signupForm) {
       return;
     }
 
+    // add new user
     users.push({ username, password, role });
+    localStorage.setItem("users", JSON.stringify(users));
 
-localStorage.setItem("users", JSON.stringify(users));
-
-alert("Registered successfully! Please login.");
-window.location.href = "login.html";
+    alert("Registered successfully! Please login.");
+    window.location.href = "login.html";
   });
 }
 
@@ -43,24 +44,25 @@ if (loginForm) {
 
     let users = JSON.parse(localStorage.getItem("users")) || [];
 
-    const user = users.find(u => 
-  (u.username === username || u.name === username) &&
-  u.password === password
-);
+    // FIXED: removed wrong 'u.name' check
+    const user = users.find(u =>
+      u.username === username && u.password === password
+    );
+
     if (user) {
-      // ✅ SAVE SESSION
+      // save login session
       localStorage.setItem("isLoggedIn", "true");
-localStorage.setItem("role", user.role);
-localStorage.setItem("username", user.username);
+      localStorage.setItem("role", user.role);
+      localStorage.setItem("username", user.username);
 
-const redirect = localStorage.getItem("redirectAfterLogin");
+      const redirect = localStorage.getItem("redirectAfterLogin");
 
-if (redirect) {
-  localStorage.removeItem("redirectAfterLogin");
-  window.location.href = redirect;
-} else {
- window.location.href = "/wesign-tech/index.html";
-}
+      if (redirect) {
+        localStorage.removeItem("redirectAfterLogin");
+        window.location.href = redirect;
+      } else {
+        window.location.href = "index.html";
+      }
 
     } else {
       document.getElementById("error").innerText = "Invalid credentials!";
@@ -77,13 +79,15 @@ function protectPage() {
     window.location.replace("login.html");
   }
 }
+
 // =======================
 // ADMIN ONLY ACCESS
 // =======================
 function protectAdmin() {
   protectPage();
 
-  if (sessionStorage.getItem("role") !== "admin") {
+  // FIXED: use localStorage (not sessionStorage)
+  if (localStorage.getItem("role") !== "admin") {
     alert("Admins only!");
     window.location.replace("index.html");
   }
@@ -93,8 +97,6 @@ function protectAdmin() {
 // LOGOUT
 // =======================
 function logout() {
-  localStorage.removeItem("isLoggedIn");
-  localStorage.removeItem("role");
-  localStorage.removeItem("username");
+  localStorage.clear(); // cleaner logout
   window.location.replace("login.html");
 }
