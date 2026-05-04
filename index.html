@@ -1,19 +1,29 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script src="auth.js"></script>
-<script>
-protectPage();
-
-</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Wesign Technologies | Advanced IT Solutions</title>
-<link rel="stylesheet" href="style.css">
 
+<link rel="stylesheet" href="style.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+<script src="auth.js"></script>
+
+<!-- ✅ FIX: run after page loads -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  protectPage();
+
+  // show logged in user
+  const username = localStorage.getItem("username");
+  if (username) {
+    document.getElementById("userDisplay").innerText = "Welcome, " + username;
+  }
+});
+</script>
+
 <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
@@ -29,17 +39,18 @@ protectPage();
 
 <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
 <div class="container">
+
 <a class="navbar-brand fw-bold" href="#">Wesign Technologies</a>
+
 <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
 <span class="navbar-toggler-icon"></span>
 </button>
-<button onclick="logout()" class="btn btn-danger ms-3">Logout</button>
+
+<!-- ✅ user display -->
 <span id="userDisplay" class="text-white me-3"></span>
 
-<script>
-document.getElementById("userDisplay").innerText =
-  "Welcome, " + sessionStorage.getItem("username");
-</script>
+<button onclick="logout()" class="btn btn-danger ms-3">Logout</button>
+
 <div class="collapse navbar-collapse" id="navMenu">
   <ul class="navbar-nav ms-auto">
     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
@@ -49,12 +60,12 @@ document.getElementById("userDisplay").innerText =
     <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
     <li class="nav-item"><a class="nav-link" href="admin.html">Admin</a></li>
-    
   </ul>
-  
 </div>
+
 </div>
 </nav>
+
 
 <section class="hero">
 <div>
